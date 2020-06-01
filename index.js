@@ -15,28 +15,28 @@ app.listen(PORT, () => console.log(`Example app listening at http://127.0.0.1:${
 
 
 function handleIndex(request, response) {
-  var battlesnakeInfo = {
+  const battlesnakeInfo = {
     apiversion: '1',
     author: '',
     color: '#888888',
     head: 'default',
     tail: 'default'
-  }
+  };
   response.status(200).json(battlesnakeInfo)
 }
 
 function handleStart(request, response) {
-  var gameData = request.body
+  const gameData = request.body;
 
   console.log('START')
   response.status(200).send('ok')
 }
 
 function handleMove(request, response) {
-  var gameData = request.body
+  const gameData = request.body;
 
-  var possibleMoves = ['up', 'down', 'left', 'right']
-  var move = possibleMoves[Math.floor(Math.random() * possibleMoves.length)]
+  const possibleMoves = ['up', 'down', 'left', 'right'];
+  const move = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
 
   console.log('MOVE: ' + move)
   response.status(200).send({
@@ -45,7 +45,7 @@ function handleMove(request, response) {
 }
 
 function handleEnd(request, response) {
-  var gameData = request.body
+  const gameData = request.body;
 
   console.log('END')
   response.status(200).send('ok')
